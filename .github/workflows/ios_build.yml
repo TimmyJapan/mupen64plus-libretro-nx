@@ -9,7 +9,7 @@ jobs:
       - name: Build for iOS
         run: |
           # platform=ios-arm64 を指定してビルド
-          make -f Makefile.libretro platform=ios-arm64
+          make platform=ios-arm64 -j$(sysctl -n hw.logicalcpu)
       - name: Upload Core
         uses: actions/upload-artifact@v4
         with:
